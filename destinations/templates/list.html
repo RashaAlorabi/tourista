@@ -1,16 +1,28 @@
-{% extends "base.html" %} 
+    {% extends "base.html" %} 
 
-{% block title %}List{% endblock title %}
+    {% block title %}List{% endblock title %}
 
-{% block content %}
-<br>
-<div class="row">
-  {% for destination in destinations %}
-  <a href="{% url 'destination-detail' destination.id %}">
-    <img src="{{destination.pretty_picture.url}}" />
-    <p>{{destination.name}}</p>
-    <p>{{destination.activities}}</p>
-  </a>
-  {% endfor %}
-</div>
-{% endblock content %}
+    {% block content %}
+    <br>
+    <div class="row">
+       
+        <h1 class="col-12 text-center">Welcomt to Tourista</h1>  
+        <hr class="style13">
+         {% for destination in destinations %}  
+        
+        <div class="card col-md-6 col-centered text-center" >
+            <img class="card-img-top" src="{{destination.pretty_picture.url}}" alt="Card image cap">
+            <div class="card-body">
+            <h5 class="card-title">{{destination.name}}</h5>
+            <p class="card-text">{{destination.activities}}.</p>
+            <a href="{% url 'destination-detail' destination.id %}" class="btn btn-primary">More info</a>
+            </div>
+        </div>
+          
+      {% endfor %}
+   
+
+    {% endblock content %}
+
+
+
